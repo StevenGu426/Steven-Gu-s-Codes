@@ -1,0 +1,80 @@
+﻿
+
+<item instructions>
+/1 = "Part 1: Learning"
+/2 = "If you see this face that means you will win $1.00."
+/3 = "If you see this face that means you will lose $1.00."
+/4 = "Blends of the two faces will give corresponding values."
+/5 = "Similarly, blends of houses are also valued depending on the amount of each house in the blend."
+/6 = "Part 1: Test"
+</item>
+
+
+
+
+<text intro>
+/ items = instructions
+/ position = (50%, 50%)
+/ select = noreplace
+/ size = (80%, 80%)
+/ vjustify = center
+/ hjustify = center
+/ fontstyle = ("Arial", 4%, true, false, false, false, 5, 1)
+</text>
+
+<text continue>
+/ items = ("continue with Spacebar")
+/ position = (50%, 90%)
+/ fontstyle = ("Courier New", 3.00%, false, false, false, false, 5, 1)
+</text>
+
+
+ 
+ I have added the trials but I need to make them appear in a specific sequence, rather than being selected randomly
+ 
+ <trial intro>
+/ stimulusframes = [1 = intro, continue]
+/ validresponse = (57)
+</trial>
+
+ 57 is the key number of the spacekey
+ 
+ <trial intro2>
+/ stimulusframes = [1 = intro, continue]
+/ validresponse = (57)
+</trial>
+
+<text instructions>
+/ items = instructions
+/ select = values.selectInstruct
+/ position = (50%, 20%)
+/ size = (80%, 20%)
+/ fontstyle = ("Arial", 4%, true, false, false, false, 5, 1)
+</text>
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+/2 = "In this case the combined value of the two images is: \$0.58 - \$0.20 = \$0.38."
+
+/3 = "The test will now begin. Try to accumulate as much money as possible. A running total of your earnings will be shown on screen. 
+
+There will be 100 trials in this first segment.:"
+
+/4 = "Remember to go as fast as you can without making any mistakes."
+/5 = "Great Job!
+Now you're ready to play the real game."
+/6 = "Great Job!
+You made it to the next level!"
+</item>
