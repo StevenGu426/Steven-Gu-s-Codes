@@ -1,5 +1,37 @@
-﻿
 
+<defaults>
+ /fontstyle = ("Arial", 3.5%)
+ /screencolor = (0,0,0)
+ /txbgcolor = (0,0,0)
+ /txcolor = (255, 255, 255)
+ /minimumversion = "3.0.0.0"
+ </defaults>
+ 
+<page 1>
+Hello.
+In this experiment we are interested in how people make decisions.
+</page>
+ 
+<page 2>
+The experiment should take about 60 minutes.
+</page>
+
+<page 3>
+In the experiment, you will see images of faces and buildings that have different meanings.
+
+Some images are associated with winning money. Others are associated with losing money. 
+
+During this part, you will learn to associate different images with their appropriate outcomes. 
+</page> 
+
+<page 4>
+You will then be tested to make sure that you have learned the values associated with the different faces and buildings. 
+ </page> 
+ 
+<page 5>  
+Make sure you pay attention as you learn about the images, since you will eventually be making choices about them in which you could end up winning or losing money.
+</page> 
+  
 <item instructions>
 /1 = "Part 1: Learning"
 /2 = "If you see this face that means you will win $1.00."
@@ -8,8 +40,6 @@
 /5 = "Similarly, blends of houses are also valued depending on the amount of each house in the blend."
 /6 = "Part 1: Test"
 </item>
-
-
 
 
 <text intro>
@@ -44,37 +74,26 @@
 / validresponse = (57)
 </trial>
 
-<text instructions>
-/ items = instructions
-/ select = values.selectInstruct
-/ position = (50%, 20%)
-/ size = (80%, 20%)
-/ fontstyle = ("Arial", 4%, true, false, false, false, 5, 1)
-</text>
+ <block practice>
+ /trials = [1-5=noreplace(intro,intro2)]
+ /preinstructions = (1,2,3,4,5)
+</block> 
 
 
+ <item faceMorph>
+ /1 = "morphs/faceMorph0.jpg"
+ /2 = "morphs/faceMorph1.jpg"
+ /3 = "morphs/faceMorph2.jpg"
+ /4 = "morphs/faceMorph3.jpg"
+ /5 = "morphs/faceMorph4.jpg"
+ /6 = "morphs/faceMorph5.jpg"
+ /7 = "morphs/faceMorph6.jpg"
+ /8 = "morphs/faceMorph7.jpg"
+ /9 = "morphs/faceMorph8.jpg"
+ /10 = "morphs/faceMorph9.jpg"
+ /11 = "morphs/faceMorph10.jpg"
+ </item>
  
- 
 
 
 
-
-
-
-
-
-
-
-
-/2 = "In this case the combined value of the two images is: \$0.58 - \$0.20 = \$0.38."
-
-/3 = "The test will now begin. Try to accumulate as much money as possible. A running total of your earnings will be shown on screen. 
-
-There will be 100 trials in this first segment.:"
-
-/4 = "Remember to go as fast as you can without making any mistakes."
-/5 = "Great Job!
-Now you're ready to play the real game."
-/6 = "Great Job!
-You made it to the next level!"
-</item>
