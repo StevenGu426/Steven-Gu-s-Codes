@@ -1,4 +1,10 @@
 
+**************************************************************************************************************
+**************************************************************************************************************
+	DEFAULTS
+**************************************************************************************************************
+**************************************************************************************************************
+
 <defaults>
  /fontstyle = ("Arial", 3.5%)
  /screencolor = (0,0,0)
@@ -7,6 +13,11 @@
  /minimumversion = "3.0.0.0"
  </defaults>
  
+**************************************************************************************************************
+**************************************************************************************************************
+ INSTRUCTIONS
+**************************************************************************************************************
+**************************************************************************************************************
 <page 1>
 Hello.
 In this experiment we are interested in how people make decisions.
@@ -14,6 +25,7 @@ In this experiment we are interested in how people make decisions.
  
 <page 2>
 The experiment should take about 60 minutes.
+
 </page>
 
 <page 3>
@@ -31,15 +43,196 @@ You will then be tested to make sure that you have learned the values associated
 <page 5>  
 Make sure you pay attention as you learn about the images, since you will eventually be making choices about them in which you could end up winning or losing money.
 </page> 
-  
+
+<page 6> 
+Part 1: Learning
+</page>
+
+
+
 <item instructions>
-/1 = "Part 1: Learning"
-/2 = "If you see this face that means you will win $1.00."
-/3 = "If you see this face that means you will lose $1.00."
-/4 = "Blends of the two faces will give corresponding values."
-/5 = "Similarly, blends of houses are also valued depending on the amount of each house in the blend."
-/6 = "Part 1: Test"
+/1 = "If you see this face that means you will win $1.00."
+/2 = "If you see this face that means you will lose $1.00."
+/3 = "Blends of the two faces will give corresponding values."
+/4 = "Similarly, blends of houses are also valued depending on the amount of each house in the blend."
+/5 = "Part 1: Test"
 </item>
+
+<text instructions>
+/ items = instructions
+/ select = 1
+/ position = (50%, 20%)
+/ fontstyle = ("Arial", 5%)
+/ hjustify = left
+/ valign = top
+</text>
+
+
+<text selectinstructions2>
+/ items = instructions
+/ select = 2
+/ position = (50%, 20%)
+/ fontstyle = ("Arial", 5%)
+/ hjustify = left
+/ valign = top
+</text>
+
+<text selectinstructions3>
+/ items = instructions
+/ select = 3
+/ position = (50%, 20%)
+/ fontstyle = ("Arial", 5%)
+/ hjustify = left
+/ valign = top
+</text>
+
+<text selectinstructions4>
+/ items = instructions
+/ select = 4
+/ position = (50%, 20%)
+/ fontstyle = ("Arial", 3.5%)
+/ hjustify = left
+/ valign = top
+</text>
+
+<text selectinstructions5>
+/ items = instructions
+/ select = 5
+/ position = (15%, 10%)
+/ fontstyle = ("Arial", 5%)
+/ hjustify = left
+/ valign = top
+</text>
+
+<trial instructions1>
+/ stimulusframes = [1=instructions, facemorphfirst]
+/ recorddata = false
+/ correctresponse = (57)
+</trial>
+
+
+<trial instructions2>
+/ stimulusframes = [1=selectinstructions2, facemorphlast]
+/ recorddata = false
+
+
+/ correctresponse = (57)
+</trial>
+
+<trial instructions3>
+/ stimulusframes = [1=selectinstructions3, facemorphfirst2, facemorphlast2, facemorphmid,valuelabel]
+/ recorddata = false
+/ correctresponse = (57)
+</trial>
+
+<trial instructions4>
+/ stimulusframes = [1=selectinstructions4, housemorphfirst, housemorphlast, housemorphmid,valuelabel]
+/ recorddata = false
+/ correctresponse = (57)
+</trial>
+
+<trial instructions5>
+/ stimulusframes = [1=selectinstructions5]
+/ recorddata = false
+/ correctresponse = (57)
+</trial>
+
+
+
+
+<block instructions>
+/trials = [
+	1=instructions1;2=instructions2;3=instructions3;4=instructions4;5= instructions5 ]
+/preinstructions = (1,2,3,4,5,6)
+</block>
+
+ <block MorphPractice>
+ /trials = [1-5=noreplace(faceMorph,houseMorph)]
+
+</block> 
+
+
+**************************************************************************************************************
+**************************************************************************************************************
+	STIMULI
+**************************************************************************************************************
+**************************************************************************************************************
+
+<text continue>
+/ items = ("continue with Spacebar")
+/ position = (50%, 90%)
+/ fontstyle = ("Courier New", 3.00%, false, false, false, false, 5, 1)
+</text>
+
+<picture facemorphfirst>
+/ items = ("morphs/faceMorph0.jpg")
+/ position = (50%, 60%)
+/ valign = bottom
+/ size = (25%, 25%)
+</picture>
+
+
+<picture facemorphlast>
+/ items = ("morphs/faceMorph100.jpg")
+/ position = (50%, 60%)
+/ valign = bottom
+/ size = (25%, 25%)
+</picture>
+
+
+<picture facemorphfirst2>
+/ items = ("morphs/faceMorph0.jpg")
+/ position = (25%, 50%)
+/ valign = bottom
+/ size = (20%, 20%)
+</picture>
+
+
+<picture facemorphlast2>
+/ items = ("morphs/faceMorph100.jpg")
+/ position = (75%, 50%)
+/ valign = bottom
+/ size = (20%, 20%)
+</picture>
+
+
+<picture facemorphmid>
+/ items = ("morphs/faceMorph50.jpg")
+/ position = (50%, 50%)
+/ valign = bottom
+/ size = (20%, 20%)
+</picture>
+
+<picture housemorphfirst>
+/ items = ("morphs/houseMorph1.jpg")
+/ position = (25%, 50%)
+/ valign = bottom
+/ size = (20%, 20%)
+</picture>
+
+<picture housemorphlast>
+/ items = ("morphs/houseMorph100.jpg")
+/ position = (75%, 50%)
+/ valign = bottom
+/ size = (20%, 20%)
+</picture>
+
+<picture housemorphmid>
+/ items = ("morphs/houseMorph50.jpg")
+/ position = (50%, 50%)
+/ valign = bottom
+/ size = (20%, 20%)
+</picture>
+
+
+<item valuelabel>
+/1 = " +1.0                                   0                                   - 1.0 "
+</item>
+
+<text valuelabel>
+/ items = valuelabel
+/ position = (50%, 60%)
+</text>
 
 
 <text intro>
@@ -52,36 +245,9 @@ Make sure you pay attention as you learn about the images, since you will eventu
 / fontstyle = ("Arial", 4%, true, false, false, false, 5, 1)
 </text>
 
-<text continue>
-/ items = ("continue with Spacebar")
-/ position = (50%, 90%)
-/ fontstyle = ("Courier New", 3.00%, false, false, false, false, 5, 1)
-</text>
-
-
- 
- I have added the trials but I need to make them appear in a specific sequence, rather than being selected randomly
- 
- <trial intro>
-/ stimulusframes = [1 = intro, continue]
-/ validresponse = (57)
-</trial>
-
- 57 is the key number of the spacekey
- 
- <trial intro2>
-/ stimulusframes = [1 = intro, continue]
-/ validresponse = (57)
-</trial>
-
- <block practice>
- /trials = [1-5=noreplace(intro,intro2)]
- /preinstructions = (1,2,3,4,5)
-</block> 
-
 
  <item faceMorph>
- /1 = "morphs/faceMorph0.jpg"
+ /1= "morphs/faceMorph0.jpg"
  /2 = "morphs/faceMorph1.jpg"
  /3 = "morphs/faceMorph2.jpg"
  /4 = "morphs/faceMorph3.jpg"
@@ -94,6 +260,45 @@ Make sure you pay attention as you learn about the images, since you will eventu
  /11 = "morphs/faceMorph10.jpg"
  </item>
  
+ 
+ <item houseMorph>
+ /1= "morphs/houseMorph0.jpg"
+ /2 = "morphs/houseMorph1.jpg"
+ /3 = "morphs/houseMorph2.jpg"
+ /4 = "morphs/houseMorph3.jpg"
+ /5 = "morphs/houseMorph4.jpg"
+ /6 = "morphs/houseMorph5.jpg"
+ /7 = "morphs/houseMorph6.jpg"
+ /8 = "morphs/houseMorph7.jpg"
+ /9 = "morphs/houseMorph8.jpg"
+ /10 = "morphs/houseMorph9.jpg"
+ /11 = "morphs/houseMorph10.jpg"
+ </item>
+ 
+
+<picture faceMorph>
+/ items = faceMorph
+/ size = (20%, 20%)
+</picture>
+
+<picture houseMorph>
+/ items = houseMorph
+/ size = (20%, 20%)
+</picture>
+
+ <trial faceMorph>
+/ stimulusframes = [1=faceMorph,continue]
+/ correctresponse = (57)
+/ posttrialpause = 250
+</trial>
+
+ <trial houseMorph>
+/ stimulusframes = [1=houseMorph,continue]
+/ correctresponse = (57)
+/ posttrialpause = 250
+</trial>
+ 
+
 
 
 
