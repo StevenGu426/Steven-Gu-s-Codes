@@ -137,7 +137,14 @@ Part 1: Learning
 / correctresponse = (57)
 </trial>
 
-
+ <trial firsttest>
+	/ stimulusframes = [1=fixation;10=faceMorph]
+	/correctresponse = ("l")
+	/validresponse = ("a", "l")
+	/errormessage = true(error, 1000)
+	/pretrialpause = 500
+ </trial>
+ 
 
 
 <block instructions>
@@ -146,10 +153,29 @@ Part 1: Learning
 /preinstructions = (1,2,3,4,5,6)
 </block>
 
- <block MorphPractice>
- /trials = [1-5=noreplace(faceMorph,houseMorph)]
 
+
+ <block MorphPractice>
+ /trials = [1-10=noreplace(faceMorph,houseMorph)]
+ /bgstim = (reminder_reject_left, reminder_accept_right)
 </block> 
+
+
+
+
+**************************************************************************************************************
+**************************************************************************************************************
+	TEST
+**************************************************************************************************************
+**************************************************************************************************************
+
+<item test>
+testNumber = 0 
+/testNumber = 0
+</item>
+
+
+
 
 
 **************************************************************************************************************
@@ -278,27 +304,71 @@ Part 1: Learning
 
 <picture faceMorph>
 / items = faceMorph
-/ size = (20%, 20%)
+/ size = (39%, 30%)
+/ select = noreplace
+/ position = (50, 50)
 </picture>
 
 <picture houseMorph>
 / items = houseMorph
-/ size = (20%, 20%)
+/ size = (30%, 30%)
+/ select = noreplace
+/ position = (50, 50)
 </picture>
 
  <trial faceMorph>
-/ stimulusframes = [1=faceMorph,continue]
+/ stimulusframes = [1=faceMorph]
 / correctresponse = (57)
 / posttrialpause = 250
+	/correctresponse = ("l")
+	/validresponse = ("a", "l")
+	/errormessage = true(error, 1000)
+	/pretrialpause = 500
 </trial>
 
  <trial houseMorph>
-/ stimulusframes = [1=houseMorph,continue]
+/ stimulusframes = [1=houseMorph]
 / correctresponse = (57)
 / posttrialpause = 250
+	/correctresponse = ("l")
+	/validresponse = ("a", "l")
+	/errormessage = true(error, 1000)
+	/pretrialpause = 500
+
 </trial>
  
 
+ <text fixation>
+	/items = ("+")
+	/select = noreplace
+	/position = (50, 50)
+	/txcolor = (255, 0, 0)
+ </text>
+ 
+
+ <text error>
+	/items = ("ERROR")
+	/select = noreplace
+	/position = (50, 60)
+	/txcolor = (255, 0, 0)
+ </text>
+
+
+
+ <text reminder_reject_left>
+ /items = ("REJECT")
+ /position = (10, 90)
+ /txcolor = (255, 0, 0)
+ /font = ("Arial", -20, 700, 0, 49)
+ </text>
+ 
+ <text reminder_accept_right>
+ /items = ("ACCEPT")
+ /position = (90, 90)
+ /txcolor = (0, 255, 0)
+ /font = ("Arial", -20, 700, 0, 49)
+ 
+ </text>
 
 
 
